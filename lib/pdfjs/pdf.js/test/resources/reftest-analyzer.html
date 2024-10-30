@@ -1,0 +1,489 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Reftest analyzer                   Reftest analyzer            Paste your log into this textarea:                               ...or load it from a file:                  Loading log...">
+<meta property="og:type" content="website">
+<meta property="og:title" content="page.title">
+<meta property="og:url" content="http://example.com/lib/pdfjs/pdf.js/test/resources/reftest-analyzer.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Reftest analyzer                   Reftest analyzer            Paste your log into this textarea:                               ...or load it from a file:                  Loading log...">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-10-30T01:38:23.948Z">
+<meta property="article:modified_time" content="2024-10-30T01:38:23.948Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>page.title - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 60vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>CHOCOLATE</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>概览</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="page.title"></span>
+          
+        </div>
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div id="board"
+          >
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+<article class="page-content">
+  <!DOCTYPE html>
+<!--
+Copyright 2012 Mozilla Foundation
+
+Version: MPL 1.1/GPL 2.0/LGPL 2.1
+
+The contents of this file are subject to the Mozilla Public License Version
+1.1 (the "License"); you may not use this file except in compliance with
+the License. You may obtain a copy of the License at
+
+    http://www.mozilla.org/MPL
+
+Software distributed under the License is distributed on an "AS IS" basis,
+WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+for the specific language governing rights and limitations under the
+License.
+
+Alternatively, the contents of this file may be used under the terms of
+either the GNU General Public License Version 2 or later (the "GPL"), or
+the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+in which case the provisions of the GPL or the LGPL are applicable instead
+of those above. If you wish to allow use of your version of this file only
+under the terms of either the GPL or the LGPL, and not to allow others to
+use your version of this file under the terms of the MPL, indicate your
+decision by deleting the provisions above and replace them with the notice
+and other provisions required by the LGPL or the GPL. If you do not delete
+the provisions above, a recipient may use your version of this file under
+the terms of any one of the MPL, the GPL or the LGPL.
+
+Original author: L. David Baron <dbaron@dbaron.org>
+-->
+<html>
+<head>
+  <title>Reftest analyzer</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="reftest-analyzer.css">
+  <script src="reftest-analyzer.js"></script>
+</head>
+<body>
+  <div id="entry">
+    <h1>Reftest analyzer</h1>
+    <p>
+      Paste your log into this textarea:<br>
+      <textarea cols="80" rows="10" id="logEntry"></textarea><br>
+      <input type="button" value="Process pasted log" id="logPasted">
+    </p>
+    <p>
+      <br>...or load it from a file:<br>
+      <input type="file" id="fileEntry">
+    </p>
+  </div>
+  <div id="loading">Loading log...</div>
+  <div id="viewer">
+    <div id="pixelarea">
+      <div id="pixelinfo">
+        <table>
+          <tbody>
+            <tr>
+              <th>Pixel at:</th>
+              <td colspan="2" id="coords"></td>
+            </tr>
+            <tr>
+              <th>Test:</th>
+              <td id="pix1rgb"></td>
+              <td id="pix1hex"></td>
+            </tr>
+            <tr>
+              <th>Reference:</th>
+              <td id="pix2rgb"></td>
+              <td id="pix2hex"></td>
+            </tr>
+          </tbody>
+        </table>
+        <div>
+          <div id="pixelhint">?
+            <div>
+              <p>Move the mouse over the reftest image on the right to show
+              magnified pixels on the left. The color information above is for
+              the pixel centered in the magnified view.</p>
+              <p>The test is shown in the upper triangle of each pixel and
+              the reference is shown in the lower triangle.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="magnification">
+        <svg xmlns="http://www.w3.org/2000/svg" width="84" height="84" shape-rendering="optimizeSpeed">
+          <g id="mag" />
+        </svg>
+      </div>
+    </div>
+    <div id="itemlist">
+      <table id="itemtable"></table>
+    </div>
+    <div id="imagepane">
+    <form id="imgcontrols">
+      <label>
+        <input type="radio" name="which" id="testImage" value="0" checked="checked"> Test
+      </label>
+      <label>
+        <input type="radio" name="which" id="referenceImage" value="1"> Reference
+      </label>
+      <label>
+        <input type="checkbox" id="differences"> Circle differences
+      </label>
+      <span id="shortcuts">Shortcuts: n=next p=previous t=toggle d=differences</span>
+    </form>
+    <div id="images">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="800" height="1000" id="svg">
+        <defs>
+          <!-- use sRGB to avoid loss of data -->
+          <filter id="showDifferences" x="0%" y="0%" width="100%" height="100%"
+                  style="color-interpolation-filters: sRGB">
+            <feImage id="feimage1" result="img1" xlink:href="#image1" />
+            <feImage id="feimage2" result="img2" xlink:href="#image2" />
+            <!-- inv1 and inv2 are the images with RGB inverted -->
+            <feComponentTransfer result="inv1" in="img1">
+              <feFuncR type="linear" slope="-1" intercept="1" />
+              <feFuncG type="linear" slope="-1" intercept="1" />
+              <feFuncB type="linear" slope="-1" intercept="1" />
+            </feComponentTransfer>
+            <feComponentTransfer result="inv2" in="img2">
+              <feFuncR type="linear" slope="-1" intercept="1" />
+              <feFuncG type="linear" slope="-1" intercept="1" />
+              <feFuncB type="linear" slope="-1" intercept="1" />
+            </feComponentTransfer>
+            <!-- w1 will have non-white pixels anywhere that img2
+                 is brighter than img1, and w2 for the reverse.
+                 It would be nice not to have to go through these
+                 intermediate states, but feComposite
+                 type="arithmetic" can't transform the RGB channels
+                 and leave the alpha channel untouched. -->
+            <feComposite result="w1" in="img1" in2="inv2" operator="arithmetic" k2="1" k3="1" />
+            <feComposite result="w2" in="img2" in2="inv1" operator="arithmetic" k2="1" k3="1" />
+            <!-- c1 will have non-black pixels anywhere that img2
+                 is brighter than img1, and c2 for the reverse -->
+            <feComponentTransfer result="c1" in="w1">
+              <feFuncR type="linear" slope="-1" intercept="1" />
+              <feFuncG type="linear" slope="-1" intercept="1" />
+              <feFuncB type="linear" slope="-1" intercept="1" />
+            </feComponentTransfer>
+            <feComponentTransfer result="c2" in="w2">
+              <feFuncR type="linear" slope="-1" intercept="1" />
+              <feFuncG type="linear" slope="-1" intercept="1" />
+              <feFuncB type="linear" slope="-1" intercept="1" />
+            </feComponentTransfer>
+            <!-- c will be nonblack (and fully on) for every pixel+component where there are differences -->
+            <feComposite result="c" in="c1" in2="c2" operator="arithmetic" k2="255" k3="255" />
+            <!-- a will be opaque for every pixel with differences and transparent for all others -->
+            <feColorMatrix result="a" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1 1 1 0 0" />
+
+            <!-- a, dilated by 4 pixels -->
+            <feMorphology result="dila4" in="a" operator="dilate" radius="4" />
+            <!-- a, dilated by 1 pixel -->
+            <feMorphology result="dila1" in="a" operator="dilate" radius="1" />
+
+            <!-- all the pixels in the 3-pixel dilation of a but not in the 1-pixel dilation of a, to highlight the diffs -->
+            <feComposite result="highlight" in="dila4" in2="dila1" operator="out" />
+
+            <feFlood result="red" flood-color="red" />
+            <feComposite result="redhighlight" in="red" in2="highlight" operator="in" />
+            <feFlood result="black" flood-color="black" flood-opacity="0.5" />
+            <feMerge>
+              <feMergeNode in="black" />
+              <feMergeNode in="redhighlight" />
+            </feMerge>
+          </filter>
+        </defs>
+        <g id="magnify">
+          <image x="0" y="0" id="image1" />
+          <image x="0" y="0" id="image2" />
+        </g>
+        <rect id="diffrect" filter="url(#showDifferences)" pointer-events="none" x="0" y="0" width="100%" height="100%" />
+      </svg>
+    </div>
+  </div>
+</body>
+</html>
+
+
+  
+
+</article>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

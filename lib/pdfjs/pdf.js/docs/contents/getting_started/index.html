@@ -1,0 +1,375 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Getting StartedAn introduction to PDF.js with examples. IntroductionBefore downloading PDF.js please take a moment to understand the different layers of the PDF.js project.                Layer">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Getting Started">
+<meta property="og:url" content="http://example.com/lib/pdfjs/pdf.js/docs/contents/getting_started/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Getting StartedAn introduction to PDF.js with examples. IntroductionBefore downloading PDF.js please take a moment to understand the different layers of the PDF.js project.                Layer">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-10-30T01:38:22.581Z">
+<meta property="article:modified_time" content="2024-10-30T01:38:22.581Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Getting Started - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 60vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>CHOCOLATE</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>概览</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Getting Started"></span>
+          
+        </div>
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div id="board"
+          >
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+<article class="page-content">
+  <h1 id="Getting-Started"><a href="#Getting-Started" class="headerlink" title="Getting Started"></a>Getting Started</h1><p>An introduction to PDF.js with examples.</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Before downloading PDF.js please take a moment to understand the different layers of the PDF.js project.</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Layer</th>
+      <th>About</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Core</td>
+      <td>The core layer is where a binary PDF is parsed and interpreted. This layer is the foundation for all subsequent layers. It is not documented here because using it directly is considered an advanced usage and the API is likely to change. For an example of using the core layer see the <a target="_blank" rel="noopener" href="https://github.com/brendandahl/pdf.js.utils/tree/master/browser">PDF Object Browser</a>.
+      </td>
+    </tr>
+    <tr>
+      <td>Display</td>
+      <td>The display layer takes the core layer and exposes an easier to use API to render PDFs and get other information out of a document. This API is what the version number is based on.</td>
+    </tr>
+    <tr>
+      <td>Viewer</td>
+      <td>The viewer is built on the display layer and is the UI for PDF viewer in Firefox and the other browser extensions within the project. It can be a good starting point for building your own viewer. <em>However, we do ask if you plan to embed the viewer in your own site, that it not just be an unmodified version. Please re-skin it or build upon it.</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="Download"><a href="#Download" class="headerlink" title="Download"></a>Download</h2><p>Please refer to <a target="_blank" rel="noopener" href="https://github.com/mozilla/pdf.js/wiki/Frequently-Asked-Questions#faq-support">this wiki page</a> for information about supported browsers.</p>
+<div class="row">
+  <div class="col-md-4">
+    <h3>Prebuilt (modern browsers)</h3>
+    <p>
+      Includes the generic build of PDF.js and the viewer.
+    </p>
+    <a type="button" class="btn btn-primary" target="_blank" rel="noopener" href="https://github.com/mozilla/pdf.js/releases/download/vSTABLE_VERSION/pdfjs-STABLE_VERSION-dist.zip">Stable (vSTABLE_VERSION)</a>
+  </div>
+  <div class="col-md-4">
+    <h3>Prebuilt (older browsers)</h3>
+    <p>
+      Includes the generic build of PDF.js and the viewer.
+    </p>
+    <a type="button" class="btn btn-primary" target="_blank" rel="noopener" href="https://github.com/mozilla/pdf.js/releases/download/vSTABLE_VERSION/pdfjs-STABLE_VERSION-legacy-dist.zip">Stable (vSTABLE_VERSION)</a>
+  </div>
+  <div class="col-md-4">
+    <h3>Source</h3>
+    To get a local copy of the current code, clone it using git:
+    <pre><code class="hljs">$ git clone https://github.com/mozilla/pdf.js.git
+$ cd pdf.js
+</code></pre>
+  </div>
+</div>
+
+<h2 id="Including-via-a-CDN"><a href="#Including-via-a-CDN" class="headerlink" title="Including via a CDN"></a>Including via a CDN</h2><p>PDF.js is hosted on several free CDNs:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.jsdelivr.com/package/npm/pdfjs-dist">https://www.jsdelivr.com/package/npm/pdfjs-dist</a></li>
+<li><a target="_blank" rel="noopener" href="https://cdnjs.com/libraries/pdf.js">https://cdnjs.com/libraries/pdf.js</a></li>
+<li><a target="_blank" rel="noopener" href="https://unpkg.com/pdfjs-dist/">https://unpkg.com/pdfjs-dist/</a></li>
+</ul>
+<h2 id="File-Layout-Overview"><a href="#File-Layout-Overview" class="headerlink" title="File Layout Overview"></a>File Layout Overview</h2><p>Note that we only mention the most relevant files and folders.</p>
+<h3 id="Prebuilt"><a href="#Prebuilt" class="headerlink" title="Prebuilt"></a>Prebuilt</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">├── build/<br>│   ├── pdf.mjs                            - display layer<br>│   ├── pdf.mjs.map                        - display layer&#x27;s source map<br>│   ├── pdf.worker.mjs                     - core layer<br>│   └── pdf.worker.mjs.map                 - core layer&#x27;s source map<br>├── web/<br>│   ├── cmaps/                             - character maps (required by core)<br>│   ├── compressed.tracemonkey-pldi-09.pdf - PDF file for testing purposes<br>│   ├── images/                            - images for the viewer and annotation icons<br>│   ├── locale/                            - translation files<br>│   ├── viewer.css                         - viewer style sheet<br>│   ├── viewer.html                        - viewer layout<br>│   ├── viewer.mjs                         - viewer layer<br>│   └── viewer.mjs.map                     - viewer layer&#x27;s source map<br>└── LICENSE<br></code></pre></td></tr></table></figure>
+
+<h3 id="Source"><a href="#Source" class="headerlink" title="Source"></a>Source</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">├── docs/                                  - website source code<br>├── examples/                              - simple usage examples<br>├── extensions/                            - browser extension source code<br>├── external/                              - third party code<br>├── l10n/                                  - translation files<br>├── src/<br>│   ├── core/                              - core layer<br>│   ├── display/                           - display layer<br>│   ├── shared/                            - shared code between the core and display layers<br>│   ├── interfaces.js                      - interface definitions for the core/display layers<br>│   └── pdf.*.js                           - wrapper files for bundling<br>├── test/                                  - unit, font, reference, and integration tests<br>├── web/                                   - viewer layer<br>├── LICENSE<br>├── README.md<br>├── gulpfile.mjs                           - build scripts/logic<br>├── package-lock.json                      - pinned dependency versions<br>└── package.json                           - package definition and dependencies<br></code></pre></td></tr></table></figure>
+
+<h2 id="Trying-the-Viewer"><a href="#Trying-the-Viewer" class="headerlink" title="Trying the Viewer"></a>Trying the Viewer</h2><p>With the prebuilt or source version, open <code>web/viewer.html</code> in a browser and the test pdf should load. Note: the worker is not enabled for file:&#x2F;&#x2F; urls, so use a server. If you’re using the source build and have node, you can run <code>npx gulp server</code>.</p>
+<h2 id="More-Information"><a href="#More-Information" class="headerlink" title="More Information"></a>More Information</h2><p>For a further walkthrough of a minimal viewer, see the hello world example. More documentation can be found in our <a target="_blank" rel="noopener" href="https://github.com/mozilla/pdf.js/wiki">wiki</a> too.</p>
+
+
+  
+
+</article>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
