@@ -19,21 +19,19 @@
   <meta name="author" content="LuciaHU">
   <meta name="keywords" content="">
   
-    <meta name="description" content="prefixtruesuffix">
-<meta property="og:type" content="website">
-<meta property="og:title" content="page.title">
-<meta property="og:url" content="http://example.com/lib/pdfjs/pdf.js/external/builder/fixtures/expand-expected.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="tomato-clock">
+<meta property="og:url" content="http://example.com/tomato-clock/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="prefixtruesuffix">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-10-30T01:38:22.691Z">
-<meta property="article:modified_time" content="2024-10-30T01:38:22.691Z">
+<meta property="article:published_time" content="2024-11-19T02:22:58.000Z">
+<meta property="article:modified_time" content="2024-11-19T02:25:42.426Z">
 <meta property="article:author" content="LuciaHU">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>page.title - Hexo</title>
+  <title>tomato-clock - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -91,7 +89,7 @@
   <header>
     
 
-<div class="header-inner" style="height: 60vh;">
+<div class="header-inner" style="height: 100vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -173,13 +171,17 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="page.title"></span>
+            <span id="subtitle" data-typed-text="tomato-clock"></span>
           
         </div>
 
         
       </div>
 
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
       
     </div>
   </div>
@@ -193,22 +195,62 @@
     
       <div class="container nopadding-x-md">
         <div id="board"
-          >
+          style="margin-top: 0">
           
           <div class="container">
             <div class="row">
               <div class="col-12 col-md-10 m-auto">
                 
 
-<article class="page-content">
-  prefixtruesuffix
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>番茄钟和待办事项</title>
+    <link rel="stylesheet" href="/css/tomato.css">
+</head>
+<body>
+    <div id="app">
+        <div class="container tomato-todolist-page">
+            <h1 class="text-center">番茄钟 & To-Do List</h1>
+            
+            <!-- 番茄钟 -->
+            <section id="tomato-clock" class="text-center">
+                <h2>番茄钟</h2>
+                <div class="clock">
+                    <span>{{ formattedMinutes }}</span>:<span>{{ formattedSeconds }}</span>
+                </div>
+                <div class="controls">
+                    <button @click="startTimer" class="start-btn" :disabled="isRunning">开始</button>
+                    <button @click="pauseTimer" class="pause-btn">暂停</button>
+                    <button @click="resetTimer" class="reset-btn">重置</button>
+                </div>
+                
+                <p class="info">专注25分钟，然后休息5分钟！</p>
+            </section>
 
+            <hr />
 
-  
-
-</article>
-
-
+            <!-- To-Do List -->
+            <section id="todo-list">
+                <h2>To-Do List</h2>
+                <div class="todo-input">
+                    <input v-model="newTask" type="text" placeholder="添加任务..." />
+                    <button @click="addTask">添加</button>
+                </div>
+                <ul id="todo-items">
+                    <li v-for="(task, index) in tasks" :key="index" @click="toggleTask(index)" :class="{ completed: task.completed }">
+                        {{ task.text }} <button @click="removeTask(index)" class="delete-btn">删除</button>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="/js/tomato.js"></script>
+</body>
+</html>
 
               </div>
             </div>

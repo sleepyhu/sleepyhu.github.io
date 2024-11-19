@@ -1,0 +1,107 @@
+/* Container */
+.tomato-todolist-page {
+    padding: 20px;
+    background: linear-gradient(to right, #fff, #f8f8f8); /* 渐变背景 */
+    border-radius: 15px; /* 增加圆角 */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* 更强的阴影效果 */
+}
+
+/* Header */
+.tomato-todolist-page h1, .tomato-todolist-page h2 {
+    color: #333; /* 自定义颜色 */
+    font-family: 'Roboto', sans-serif; /* 使用现代字体 */
+    margin-bottom: 10px; /* 增加底部间距 */
+}
+
+/* Clock */
+.tomato-todolist-page .clock {
+    font-size: 4em; /* 增大字体 */
+    color: #ff4c60; /* 番茄红色 */
+    margin: 20px 0;
+    transition: transform 0.5s ease; /* 过渡效果 */
+}
+
+/* Controls */
+.tomato-todolist-page .controls {
+    margin: 20px 0;
+}
+
+/* General button styles */
+.tomato-todolist-page button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s, transform 0.3s; /* 按钮的背景色和缩放效果 */
+    margin: 5px;
+    color: white; /* 统一按钮文字颜色 */
+}
+
+/* Specific button styles */
+.tomato-todolist-page .start-btn {
+    background-color: #28a745; /* 绿色 */
+}
+
+.tomato-todolist-page .pause-btn {
+    background-color: #ffc107 ; /* 黄色 */
+}
+
+.tomato-todolist-page .reset-btn {
+    background-color: #dc3545; /* 红色 */
+}
+
+/* Disabled state */
+.tomato-todolist-page button:disabled {
+    background-color: #0d0101;
+    cursor: not-allowed;
+}
+
+/* Button hover effects */
+.tomato-todolist-page .start-btn:hover {
+    background-color: #218838; /* 暗绿色 */
+}
+
+.tomato-todolist-page .pause-btn:hover {
+    background-color: #e0a800; /* 暗黄色 */
+}
+
+.tomato-todolist-page .reset-btn:hover {
+    background-color: #c82333; /* 暗红色 */
+}
+
+/* Todo list */
+.tomato-todolist-page #todo-items {
+    list-style: none;
+    padding: 0;
+}
+
+.tomato-todolist-page #todo-items li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    transition: background-color 0.2s ease; /* 平滑过渡效果 */
+}
+
+.tomato-todolist-page #todo-items li:hover {
+    background-color: rgba(255, 76, 96, 0.1); /* 鼠标悬停时的背景颜色 */
+}
+
+.tomato-todolist-page #todo-items li.completed {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.tomato-todolist-page .delete-btn {
+    background-color: transparent;
+    color: #ff4c60;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s; /* 删除按钮颜色过渡 */
+}
+
+.tomato-todolist-page .delete-btn:hover {
+    color: darkred; /* 鼠标悬停时变为深红色 */
+}
